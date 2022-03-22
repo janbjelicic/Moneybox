@@ -48,6 +48,17 @@ class LoginViewController: UIViewController {
         activityIndicatorView.style = .medium
 
         loginButton.setTitle("Login", for: .normal)
+
+        setupGestures()
+    }
+
+    private func setupGestures() {
+         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     private func bindInputs() {
