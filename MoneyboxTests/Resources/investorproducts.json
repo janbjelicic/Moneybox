@@ -1,0 +1,13 @@
+{
+    "TotalPlanValue": 43879.930000,
+    "ProductResponses": [
+        {
+            "Id": 8043,
+            "PlanValue": 31045.13,
+            "Moneybox": 60.00,
+            "Product": {
+                "FriendlyName": "Stocks & Shares ISA"
+            }
+        }
+    ]
+}

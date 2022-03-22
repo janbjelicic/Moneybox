@@ -1,0 +1,43 @@
+disabled_rules: # rule identifiers to exclude from running
+  - file_length
+  - identifier_name
+  - type_body_length
+  - inclusive_language
+  - force_cast
+
+large_tuple:
+  - 4 #warning
+
+function_parameter_count:
+  - 7 #warning
+  - 10 #error
+
+type_name:
+  min_length: 2
+  max_length: 1000 # max allowed
+
+line_length:
+  warning: 140
+
+nesting:
+  type_level:
+    warning: 2
+
+function_body_length:
+  - 50 #warning
+
+opt_in_rules:
+  - empty_count
+  - unused_import
+  - file_name
+  - first_where
+  - modifier_order
+  - toggle_bool
+  - empty_xctest_method
+  - implicit_return
+  - empty_collection_literal
+  - empty_string
+  - unneeded_parentheses_in_closure_argument
+  - line_length
+
+
