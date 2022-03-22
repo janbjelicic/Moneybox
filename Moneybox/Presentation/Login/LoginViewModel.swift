@@ -10,13 +10,13 @@ class LoginViewModel {
 
     struct Input {
         let action = PublishSubject<Action>()
-        let email = BehaviorRelay<String?>(value: "test+ios@moneyboxapp.com")
-        let password = BehaviorRelay<String?>(value: "P455word12")
+        let email = BehaviorRelay<String?>(value: nil)
+        let password = BehaviorRelay<String?>(value: nil)
     }
 
     struct Output {
-        let email = BehaviorRelay<String?>(value: "test+ios@moneyboxapp.com")
-        let password = BehaviorRelay<String?>(value: "P455word12")
+        let email = BehaviorRelay<String?>(value: nil)
+        let password = BehaviorRelay<String?>(value: nil)
         let isLoaderAnimating = BehaviorRelay<Bool>(value: false)
 
         let showError = PublishRelay<ErrorInformation>()
