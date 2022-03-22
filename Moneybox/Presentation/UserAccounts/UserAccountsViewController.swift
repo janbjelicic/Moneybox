@@ -41,6 +41,16 @@ class UserAccountsViewController: UIViewController {
     // MARK: - UI
     private func setupUI() {
         title = "User Accounts"
+        setupPullToRefresh()
+    }
+
+    private func setupPullToRefresh() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshTriggered), for: .valueChanged)
+    }
+
+    @objc private func refreshTriggered() {
+        viewModel.input.action.onNext(.reloadInvestorProducts)
     }
 
     private func bindInputs() {
@@ -72,6 +82,13 @@ class UserAccountsViewController: UIViewController {
         viewModel.output.isTableViewHidden
             .asDriver()
             .drive(tableView.rx.isHidden)
+            .disposed(by: disposeBag)
+
+        viewModel.output.hideTableViewRefreshControl
+            .asSignal()
+            .emit(with: self, onNext: { owner, _ in
+                owner.tableView.refreshControl?.endRefreshing()
+            })
             .disposed(by: disposeBag)
 
         viewModel.output.isLoaderAnimating

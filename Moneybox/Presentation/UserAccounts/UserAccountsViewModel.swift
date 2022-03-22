@@ -6,6 +6,7 @@ class UserAccountsViewModel {
 
     enum Action {
         case viewWillAppear
+        case reloadInvestorProducts
         case selectedItem(UserAccountItem)
     }
 
@@ -20,6 +21,7 @@ class UserAccountsViewModel {
         let isLoaderAnimating = BehaviorRelay<Bool>(value: false)
         let isTableViewHidden = BehaviorRelay<Bool>(value: true)
 
+        let hideTableViewRefreshControl = PublishRelay<Void>()
         let showError = PublishRelay<ErrorInformation>()
         let showIndividualAccountScreen = PublishRelay<IndividualAccountDependencies>()
         let showLoginScreen = PublishRelay<Void>()
@@ -49,7 +51,9 @@ class UserAccountsViewModel {
             .subscribe(with: self, onNext: { owner, action in
                 switch action {
                 case .viewWillAppear:
-                    owner.handleViewWillAppear()
+                    owner.handleLoadInvestorProducts(true)
+                case .reloadInvestorProducts:
+                    owner.handleLoadInvestorProducts(false)
                 case .selectedItem(let item):
                     owner.handleSelectedItem(item)
                 }
@@ -58,11 +62,13 @@ class UserAccountsViewModel {
     }
 
     // MARK: - Actions
-    private func handleViewWillAppear() {
+    private func handleLoadInvestorProducts(_ shouldShowLoader: Bool) {
         let request = InvestorProductsRequest()
 
-        output.isLoaderAnimating.accept(true)
-        output.isTableViewHidden.accept(true)
+        if shouldShowLoader {
+            output.isLoaderAnimating.accept(true)
+            output.isTableViewHidden.accept(true)
+        }
 
         accountService.getInvestorProducts(request)
             .subscribe(with: self, onSuccess: { owner, investorProducts in
@@ -73,6 +79,7 @@ class UserAccountsViewModel {
 
                 owner.output.isLoaderAnimating.accept(false)
                 owner.output.isTableViewHidden.accept(false)
+                owner.output.hideTableViewRefreshControl.accept(())
             }, onFailure: { owner, error in
                 let errorInformation = ErrorInformation(name: "Error",
                                                         message: "Something went wrong, please try again.")
@@ -106,8 +113,10 @@ class UserAccountsViewModel {
     }
 
     private func handleError(_ errorInformation: ErrorInformation) {
+        output.hideTableViewRefreshControl.accept(())
         output.isLoaderAnimating.accept(false)
-        output.isTableViewHidden.accept(true)
+        output.isTableViewHidden.accept(false)
+        output.items.accept([])
         output.showError.accept(errorInformation)
     }
 

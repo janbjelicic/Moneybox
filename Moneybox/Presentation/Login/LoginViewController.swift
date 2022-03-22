@@ -48,6 +48,9 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("Login", for: .normal)
 
         activityIndicatorView.style = .medium
+
+        emailTextField.text = "test+ios@moneyboxapp.com"
+        passwordTextField.text = "P455word12"
     }
 
     private func bindInputs() {

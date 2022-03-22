@@ -94,7 +94,7 @@ class UserAccountsViewModelTests: XCTestCase {
 
         sut.input.action.onNext(.selectedItem(expectedMapItem))
 
-        wait(for: [expectation], timeout: 1)
+        wait(for: [expectation], timeout: 2)
     }
 
 }
