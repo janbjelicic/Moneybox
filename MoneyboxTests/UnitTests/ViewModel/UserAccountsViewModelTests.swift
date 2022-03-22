@@ -22,29 +22,77 @@ class UserAccountsViewModelTests: XCTestCase {
     }
 
     // MARK: - Helpers
-    private func setupTestData(_ response: InvestorProductsResponse) {
+    private func setupTestData(mapper: UserAccountItemMapper,
+                               response: InvestorProductsResponse) {
         let accountService = FakeAccountService(investorProductsResponse: response)
 
-        sut = UserAccountsViewModel(userAccountItemMapper: UserAccountItemMapper(),
+        sut = UserAccountsViewModel(userAccountItemMapper: mapper,
                                     accountService: accountService)
     }
 
     // MARK: - Tests
-    func testDidTapLogin() {
+    func testViewWillAppear() {
+        let mapper = UserAccountItemMapper()
         let investorProdcutsResponse = AccountBuilder.investorProductsResponse
-        setupTestData(investorProdcutsResponse)
+        setupTestData(mapper: mapper,
+                      response: investorProdcutsResponse)
+
+        let mappedItems = mapper(investorProdcutsResponse)
 
         let expectation = XCTestExpectation(description: #function)
+        expectation.assertForOverFulfill = true
+        expectation.expectedFulfillmentCount = 3
 
-//        sut.output.showUserAccounts
-//            .subscribe(onNext: { _ in
-//                expectation.fulfill()
-//            })
-//            .disposed(by: disposeBag)
-//
-//        sut.input.email.accept("Email")
-//        sut.input.password.accept("Password")
-//        sut.input.action.onNext(.didTapLogin)
+        sut.output.greeting
+            .skip(1)
+            .subscribe(onNext: { text in
+                XCTAssertEqual(text, "Hello Jan!")
+                expectation.fulfill()
+            })
+            .disposed(by: disposeBag)
+
+        sut.output.totalPlanValue
+            .skip(1)
+            .subscribe(onNext: { text in
+                XCTAssertEqual(text, "Total plan value: £\(investorProdcutsResponse.totalPlanValue)")
+                expectation.fulfill()
+            })
+            .disposed(by: disposeBag)
+
+        sut.output.items
+            .skip(1)
+            .subscribe(onNext: { items in
+                XCTAssertEqual(items, mappedItems)
+                expectation.fulfill()
+            })
+            .disposed(by: disposeBag)
+
+        sut.input.action.onNext(.viewWillAppear)
+
+        wait(for: [expectation], timeout: 1)
+    }
+
+    // MARK: - Tests
+    func testSelectedItem() {
+        let mapper = UserAccountItemMapper()
+        let investorProdcutsResponse = AccountBuilder.investorProductsResponse
+        setupTestData(mapper: mapper,
+                      response: investorProdcutsResponse)
+
+        let mappedItems = mapper(investorProdcutsResponse)
+        let expectedMapItem = mappedItems[0]
+
+        let expectation = XCTestExpectation(description: #function)
+        let expectedDependencies = IndividualAccountDependencies(userAccountItem: expectedMapItem)
+
+        sut.output.showIndividualAccountScreen
+            .subscribe(onNext: { dependecies in
+                XCTAssertEqual(dependecies, expectedDependencies)
+                expectation.fulfill()
+            })
+            .disposed(by: disposeBag)
+
+        sut.input.action.onNext(.selectedItem(expectedMapItem))
 
         wait(for: [expectation], timeout: 1)
     }

@@ -85,6 +85,8 @@
 		80FFBCA627EA0CBD0079BA71 /* FakeAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFBCA527EA0CBD0079BA71 /* FakeAuthorizationService.swift */; };
 		80FFBCA827EA11540079BA71 /* FakeAuthorizationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFBCA727EA11540079BA71 /* FakeAuthorizationRepository.swift */; };
 		80FFBCAA27EA115D0079BA71 /* FakeAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFBCA927EA115D0079BA71 /* FakeAccountService.swift */; };
+		80FFBCAC27EA1EFE0079BA71 /* UserAccountItem+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFBCAB27EA1EFE0079BA71 /* UserAccountItem+Equatable.swift */; };
+		80FFBCAE27EA1FF80079BA71 /* IndividualAccountDependencies+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFBCAD27EA1FF80079BA71 /* IndividualAccountDependencies+Equatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +179,8 @@
 		80FFBCA527EA0CBD0079BA71 /* FakeAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthorizationService.swift; sourceTree = "<group>"; };
 		80FFBCA727EA11540079BA71 /* FakeAuthorizationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthorizationRepository.swift; sourceTree = "<group>"; };
 		80FFBCA927EA115D0079BA71 /* FakeAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAccountService.swift; sourceTree = "<group>"; };
+		80FFBCAB27EA1EFE0079BA71 /* UserAccountItem+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserAccountItem+Equatable.swift"; sourceTree = "<group>"; };
+		80FFBCAD27EA1FF80079BA71 /* IndividualAccountDependencies+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndividualAccountDependencies+Equatable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -609,6 +613,8 @@
 				80FFBC9F27EA09440079BA71 /* ProductResponse+Equatable.swift */,
 				80FFBCA127EA09780079BA71 /* ProductDetailsResponse+Equatable.swift */,
 				80FFBCA327EA0A440079BA71 /* OneOffPaymentResponse+Equatable.swift */,
+				80FFBCAB27EA1EFE0079BA71 /* UserAccountItem+Equatable.swift */,
+				80FFBCAD27EA1FF80079BA71 /* IndividualAccountDependencies+Equatable.swift */,
 			);
 			path = Equatable;
 			sourceTree = "<group>";
@@ -823,6 +829,8 @@
 				80FFBCA027EA09440079BA71 /* ProductResponse+Equatable.swift in Sources */,
 				80FFBC8D27E9F8170079BA71 /* BundleClass.swift in Sources */,
 				80FFBC9E27EA091E0079BA71 /* InvestorProductsResponse+Equatable.swift in Sources */,
+				80FFBCAC27EA1EFE0079BA71 /* UserAccountItem+Equatable.swift in Sources */,
+				80FFBCAE27EA1FF80079BA71 /* IndividualAccountDependencies+Equatable.swift in Sources */,
 				80FFBC9127E9FB3F0079BA71 /* ErrorBuilder.swift in Sources */,
 				80FFBCA227EA09780079BA71 /* ProductDetailsResponse+Equatable.swift in Sources */,
 				807B678427E7B44500E38236 /* AuthorizationBuilder.swift in Sources */,
