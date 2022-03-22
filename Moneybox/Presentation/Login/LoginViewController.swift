@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordLabel: UILabel!
     @IBOutlet private weak var passwordTextField: UITextField!
 
-    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var loginButton: PrimaryButton!
 
     // MARK: - Data
     weak var coordinator: AppCoordinator?
@@ -45,12 +45,12 @@ class LoginViewController: UIViewController {
         emailLabel.text = "Email"
         passwordLabel.text = "Password"
 
-        loginButton.setTitle("Login", for: .normal)
-
         activityIndicatorView.style = .medium
 
         emailTextField.text = "test+ios@moneyboxapp.com"
         passwordTextField.text = "P455word12"
+
+        loginButton.setTitle("Login", for: .normal)
     }
 
     private func bindInputs() {

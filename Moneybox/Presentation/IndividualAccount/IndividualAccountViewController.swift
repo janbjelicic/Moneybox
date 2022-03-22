@@ -11,7 +11,7 @@ class IndividualAccountViewController: UIViewController {
     @IBOutlet private weak var planValueLabel: UILabel!
     @IBOutlet private weak var moneyboxLabel: UILabel!
 
-    @IBOutlet private weak var addButton: UIButton!
+    @IBOutlet private weak var addButton: PrimaryButton!
 
     // MARK: - Data
     weak var coordinator: AppCoordinator?

@@ -87,6 +87,7 @@
 		80FFBCAA27EA115D0079BA71 /* FakeAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFBCA927EA115D0079BA71 /* FakeAccountService.swift */; };
 		80FFBCAC27EA1EFE0079BA71 /* UserAccountItem+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFBCAB27EA1EFE0079BA71 /* UserAccountItem+Equatable.swift */; };
 		80FFBCAE27EA1FF80079BA71 /* IndividualAccountDependencies+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFBCAD27EA1FF80079BA71 /* IndividualAccountDependencies+Equatable.swift */; };
+		80FFBCB127EA2BD20079BA71 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFBCB027EA2BD20079BA71 /* PrimaryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +182,7 @@
 		80FFBCA927EA115D0079BA71 /* FakeAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAccountService.swift; sourceTree = "<group>"; };
 		80FFBCAB27EA1EFE0079BA71 /* UserAccountItem+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserAccountItem+Equatable.swift"; sourceTree = "<group>"; };
 		80FFBCAD27EA1FF80079BA71 /* IndividualAccountDependencies+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndividualAccountDependencies+Equatable.swift"; sourceTree = "<group>"; };
+		80FFBCB027EA2BD20079BA71 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -456,6 +458,7 @@
 		80F8BA6C27E2520C00053EA7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				80FFBCAF27EA2BCB0079BA71 /* Controls */,
 				807B674C27E7208000E38236 /* Utilities */,
 				807B671827E5A3EB00E38236 /* Application */,
 				80F8BA6F27E2535100053EA7 /* IndividualAccount */,
@@ -619,6 +622,14 @@
 			path = Equatable;
 			sourceTree = "<group>";
 		};
+		80FFBCAF27EA2BCB0079BA71 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				80FFBCB027EA2BD20079BA71 /* PrimaryButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -777,6 +788,7 @@
 				807B675627E731EF00E38236 /* ProductResponse.swift in Sources */,
 				807B672B27E5A8CD00E38236 /* Resolver+Login.swift in Sources */,
 				807B675027E721BE00E38236 /* Storyboard.swift in Sources */,
+				80FFBCB127EA2BD20079BA71 /* PrimaryButton.swift in Sources */,
 				807B675227E7220600E38236 /* UIViewController.swift in Sources */,
 				807B671727E5A2CD00E38236 /* InvestorProductsResponse.swift in Sources */,
 				807B674B27E718B400E38236 /* OneOffPaymentResponse.swift in Sources */,

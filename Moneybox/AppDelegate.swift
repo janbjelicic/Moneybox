@@ -13,7 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appCoordinator = AppCoordinator(window: window, navigationController: navigationController)
         appCoordinator.start()
 
+        setupDesign()
+
         return true
+    }
+
+    private func setupDesign() {
+        UINavigationBar.appearance().tintColor = UIColor(named: "Primary")
     }
 
 }
